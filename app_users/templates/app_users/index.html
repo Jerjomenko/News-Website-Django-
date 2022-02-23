@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_users/css/index.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Питоновости</h1>
+            <img src="{% static '/app_users/img/python_logo.svg' %}" alt="logo">
+        </div>
+        <div class="neader-top">
+            {% if request.user.is_authenticated %}
+                <p>Вы авторизованы! {{ request.user.username }}</p>
+                <a class="my_link" href="logout/">Анонимно</a>
+            {% else %}
+                <p>Вы находитесь в анонимном режиме!</p>
+                <a class="my_link" href="login/">Логин</a>
+            {% endif %}
+        </div>
+    </header>
+    <nav class="container navigator">
+        <ul class="navigator-list">
+            <li>
+                <button class="button-nav">Примеры</button>
+            </li>
+            <li>
+                <button class="button-nav">Технологии</button>
+            </li>
+            <li>
+                <form action="https://pypi.org/" target="_blank">
+                    <button class="button-nav">Библиотеки</button>
+                </form>    
+            </li>
+            <li>
+                <form action="https://letpy.com/handbook/builtins/" target="_blank">
+                    <button class="button-nav">Документация</button>
+                </form>
+            </li>
+            <li>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'profile' pk=user.id %}">
+                        <button class="button-nav">Мой кабинет</button>
+                    </form>
+                {% else %}
+                    <form action="#">
+                        <button class="button-nav">Мой кабинет</button>
+                    </form>
+                {% endif %}
+            </li>
+            <li>
+                <form action="{% url 'registration' %}">
+                    <button class="button-nav">Регистрация</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <h2>Top News</h2>
+    <form class="container search" action="{% url 'index' %}">
+        <input type="search" placeholder="Search" aria-label="Search" name="search">
+        <button class="but-search" type="submit">Search</button>
+    </form>
+    <section class="container news-section">
+        <ul class="flex">
+        {% for i in page_obj %}
+            <div class="news-li">
+                {% if i.my_image %}
+                <form action="{% url 'detail' pk=i.id %}">
+                    <button class="but one" style="background: url('{{ i.my_image.url }}') no-repeat center center / cover ">
+                        <h3>{{ i.title }}</h3>
+                        <p>автор: {{ i.author }}</p>
+                    </button>
+                </form>
+                {% else %}
+                <form action="{% url 'detail' pk=i.id %}">
+                    <button class="but one" style="background: url('/static/app_users/img/ai_sq.jpg') no-repeat center center / cover ">
+                        <h3>{{ i.title }}</h3>
+                        <p>автор: {{ i.author }}</p>
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </ul>
+    </section>
+    {% if page_obj.has_other_pages %}
+        <nav class="container pages">
+            <p>Страницы:</p>
+            <ul>
+                {% for p in page_obj.paginator.page_range %}
+                <li class="numb">
+                    <a href="?page={{ p }}">{{ p }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% else %}
+        <p>{{ pass }}</p>
+    {% endif %}
+    <section class="tv">
+        <div class="player">
+            <img src="{% static '/app_users/img/tv.jpg' %}" alt="TV-video">
+            <video src="{% static '/app_users/video/Hoffnung.mp4' %}" controls></video>
+        </div>
+    </section>
+</body>
+</html>
+

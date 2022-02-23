@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_users/css/update_user.css' %}">
+</head>
+<body>
+    <div class="main">
+        <h1>Добавить, или изменить информацию.</h1>
+        <hr>
+        <div class="profile">
+            <form method="post" action="{% url 'update_user' pk=pk %}">
+                {% csrf_token %}
+                    <h2>Персональные данные</h2>
+                    {{ form.as_p }}
+                    <button class="but" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

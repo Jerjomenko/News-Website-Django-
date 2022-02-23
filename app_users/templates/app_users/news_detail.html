@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_users/css/detail.css' %}">
+</head>
+<body>
+    <h1>{{ news.title }}</h1>
+    <section class="container">
+        <div class="news">
+            <div class="text">
+                <p>{{ news.text }}</p>
+                <form action="../../">
+                    <button class="but">На главную</button>
+                </form>
+            </div>
+            {% if news.my_image %}
+            <div class="imgclass">
+                <img src="{{ news.my_image.url }}" alt="img">
+            </div>
+            {% else %}
+            <div class="imgclass">
+                <img src="{% static 'app_users/img/ai_sq.jpg' %}" alt="img">
+            </div>
+            {% endif %}
+        </div>
+        <h2>Коментарии</h2>
+        <hr>
+        <artical class="flex">
+            <div class="comments_block">
+            {% for item in news.coments.all %}
+                <p>{{ item }}  от: <i>{{ item.user_name }}</i></p>
+            {% endfor %}
+            </div>
+            <div class="coment_form">
+            <!-- здесь изменил object.pk na pk заработала проверка на логин ,но пропала новость.-->
+                <h3>Добавить коментарии</h3>
+                <form action="{% url 'detail' pk=pk %}" method="post">
+                    {% csrf_token %}
+                    <div>
+                        {{ form.text }}
+                    </div>
+                    <div>
+                        <p class="form-name">Имя</p>
+                        <p>{{ form.user_name }}</p>
+                    </div>
+                    <button class="but" type="submit">Добавить</button>
+                </form>
+            </div>
+        </artical>
+    </section>
+</body>
+</html>
+

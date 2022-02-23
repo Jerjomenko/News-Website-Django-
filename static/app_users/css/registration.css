@@ -1,0 +1,82 @@
+body {
+    font-family: Comic Sans MS, Helvetica, Arial;
+    margin: 0;
+    background-color: lightgray;
+}
+
+.main {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 50px;
+    width: 1400px;
+    border: 2px solid #333333;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3),
+               0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.main:before,
+.main:after {
+        content:"";
+        position:absolute;
+        z-index:-2;
+        bottom:15px;
+        left:10px;
+        width:50%;
+        height:20%;
+        max-width:300px;
+        box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+        transform:rotate(-3deg);
+}
+
+.main:after {
+    right:10px;
+    left:auto;
+    transform:rotate(3deg);
+}
+
+
+
+
+h1 {
+    padding-left: 350px;
+    padding-top: 100px;
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.but {
+    margin-left: 100px;
+    margin-bottom: 50px;
+    width: 120px;
+    height: 30px;
+    background: -moz-linear-gradient(#2f4f4f, #009999);
+    background: -webkit-gradient(linear, 50% 50%, 50% 100%, from(#00BBD6), to(#2f4f4f));
+    padding: 3px 7px;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #666;
+}
+
+.but:hover {
+    background: skyblue;
+}
+.but:active {
+    background: cadetblue;
+    box-shadow: 0 3px #EBFFFF inset;
+}
+
+.main label {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.main input {
+    width: 40%;
+    height: 30px;
+}

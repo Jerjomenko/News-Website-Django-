@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать новость.</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_users/css/newscreate.css' %}">
+</head>
+<body>
+    <div class="main">
+        <hi>Создать новость.</hi>
+        <hr>
+        <div class="news">
+        <form method="post" action="{% url 'newscreate' pk=pk %}" enctype="multipart/form-data">
+            {% csrf_token %}
+                {{ form.as_p }}
+                <button class="but" type="submit">Сохранить</button>
+        </form>
+    </div>
+</body>
+</html>
+

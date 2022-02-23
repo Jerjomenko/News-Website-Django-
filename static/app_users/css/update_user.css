@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    background-color: lightgray;
+    font-family: Comic Sans MS, Helvetica, Arial;
+    background: url('/static/app_users/img/ai_sq.jpg') no-repeat center center / cover;
+}
+
+h1 {
+    position: relative;
+    align-items: center;
+    padding-top: 50px;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+
+.main {
+    position: relative;
+    background-color: azure;
+    max-width: 900px;
+    margin: 100px auto 70px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 3px 10px #000;
+    text-align: center;
+}
+
+.but {
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    background: -moz-linear-gradient(#2f4f4f, #009999);
+    background: -webkit-gradient(linear, 50% 50%, 50% 100%, from(#00BBD6), to(#2f4f4f));
+    padding: 3px 7px;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #666;
+}
+
+.but:hover {
+    background: skyblue;
+}
+.but:active {
+    background: cadetblue;
+    box-shadow: 0 3px #EBFFFF inset;
+}
+
+.profile {
+    display: flex;
+    padding-left: 200px;
+}
+
+.profile input {
+    display: flex;
+    height: 25px;
+    width: 80%;
+}
+
+.profile label {
+    display: flex;
+    text-align: right;
+}

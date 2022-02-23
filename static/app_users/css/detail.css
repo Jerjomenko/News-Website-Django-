@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: Comic Sans MS, Helvetica, Arial;
+    background: url('/static/app_users/img/ai_buity.jpg') no-repeat center center / cover;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 80px 0;
+  width: 1520px;
+}
+
+h1 {
+    padding-left: 350px;
+    padding-top: 150px;
+    font-weight: 600;
+    font-size: 40px;
+    color: #fff;
+}
+
+.news {
+    display: flex;
+    position: relative;
+    background-color: azure;
+    width: 1400px;
+    margin: 0 auto 70px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 3px 10px #000;
+}
+
+h2 {
+    padding-left: 350px;
+    font-weight: 600;
+    font-size: 30px;
+    color: #fff;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 30px;
+    color: #fff;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.coment_form {
+    position: relative;
+}
+
+.comments_block {
+    position: relative;
+    min-height: 100px;
+    min-width: 600px;
+    background-color: azure;
+    border-radius: 20px;
+}
+
+.comments_block p {
+    padding-top: 20px;
+    padding-left: 20px;
+    margin: 0;
+}
+
+
+.but {
+    display: inline-block;
+    position: relative;
+    bottom: 0;
+    width: 120px;
+    height: 30px;
+    background: -moz-linear-gradient(#2f4f4f, #009999);
+    background: -webkit-gradient(linear, 50% 50%, 50% 100%, from(#00BBD6), to(#2f4f4f));
+    padding: 3px 7px;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #666;
+    font-weight: bold;
+}
+
+.but:hover {
+    background: skyblue;
+}
+.but:active {
+    background: cadetblue;
+    box-shadow: 0 3px #EBFFFF inset;
+}
+
+.form-name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 25px;
+    color: #fff;
+}
+
+
+.imgclass img {
+    max-width: 300px;
+    max-height: 350px;
+}

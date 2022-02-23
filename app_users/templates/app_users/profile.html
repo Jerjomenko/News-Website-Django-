@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_users/css/profile.css' %}">
+</head>
+<body>
+    <h1>Личный кабинет</h1>
+    <div class="main">
+        {% if user.is_authenticated %}
+            <h2>{{ user.username }}
+                {% if  user.profile.moderator %} - Модератор {% elif user.profile.verify %} - Автор
+                {% else %} - Обычный пользовотель {% endif %}</h2>
+        {% else %}
+            <p>Вы не авторизованы!!.</p>
+        {% endif %}
+        {% if user.profile.verify %}
+            <form action="{% url 'newscreate' pk=pk %}">
+                <button class="but one">Create News</button>
+            </form>
+        {% endif %}
+        <form action="../../">
+            <button class="but">Back</button>
+        </form>
+    </div>
+    <div class="data main">
+        <h2>Контактные данные.</h2>
+        <hr>
+        <p>{{ user.first_name }} {{ user.last_name}}</p>
+        <p>Город:  {{ user.profile.city }}</p>
+        <p>Электронная почта:  {{ user.email }}</p>
+        <p>Телефон:  {{ user.profile.tel }}</p>
+        <form action="{% url 'update_user' pk=pk %}">
+            <button class="but">Редактировать</button>
+        </form>
+    </div>
+    {% if user.profile.moderator %}
+        <div class="user-list main">
+            <h2>Список пользователей.</h2>
+            <hr>
+            {% for i in user_list %}
+                <!--<p class="inp">{{ i.id }}.  {{ i.username }} - <i>разрешено публиковать новости:</i>
+                    {% if i.profile.verify %} ДА {% else %} НЕТ {% endif %}-->
+                    <form class="inp" method="post" action="{% url 'profile' pk=pk %}">
+                        {% csrf_token %}
+                        <p class="inp">{{ i.id }}.  {{ i.username }} - <i>разрешено публиковать новости:</i>
+                            {% if i.profile.verify %} ДА {% else %} НЕТ {% endif %}
+                            {% if i.profile.verify %}
+                                <input type="hidden" name="data" value="{{ i.id }}">
+                                <button class="inp button" type="submit">Запретить</button>
+                            {% else %}
+                                <input type="hidden" name="data" value="{{ i.id }}">
+                                <button class="inp button" type="submit">Разрешить</button>
+                            {% endif %}
+                    </form>
+                </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>
+
