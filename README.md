@@ -15,4 +15,4 @@ ____
 + __HTML5__
 + __CSS3__
 
-![Главная](Screenshot (40).png)
+![Главная](index.png)
