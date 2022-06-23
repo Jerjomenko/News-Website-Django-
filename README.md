@@ -1,15 +1,15 @@
-# __Рабочий макет Новостного сайта.__
+# __Arbeitslayout der News-Site.__
 ____
 
-#### Рабочий макет Новостного Сайта.
-С Регистрацией пользователей, аутентификацией, настроенной админ панелью. Возможностю распределять права модератором как в адмике , так и в шаблоне.
-Создание Новостей пользователями с правами автора. Коментарии к Новости всеми пользователями.
-Возможность поиска Новости по тегу, пагинация. Дополнительно видеоплеер.
+#### Arbeitslayout der News-Site.
+News-Site mit Benutzerregistrierung, Authentifizierung, konfiguriertem Admin-Panel. Möglichkeit, Moderatorenrechte wie in Admin, wie in Template zu verteilen.
+Erstellung von Nachrichten durch Benutzer mit Autorenrechten. Kommentare zu den Nachrichten von allen Benutzern.
+Möglichkeit der Suche nach Nachrichten nach Tag, Paginierung. Außerdem gibt es einen Videoplayer.
 
 ____
 
 
-## Используемые технологии:
+## Verwendete Technologien:
 + __Python 3.8.7__
 + __Django 3.2.9__
 + __HTML5__
